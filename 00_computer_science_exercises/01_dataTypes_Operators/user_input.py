@@ -20,5 +20,18 @@ print(myNumber + 5)
 
 # Wrapper Functions
 # int() will convert the data to an integer if possible.
+newNumber = input("Please type a value and press enert.\n")
+print(int(newNumber)) # can convert SRING to INTGER.
+print(float(newNumber)) # can convert STRING to FLOAT.
+print(str(newNumber)) # can covert INTGER to STRING.
+
 # float() will convert the data to a float if possible.
+newNumber = input("Please type a value and press enert.\n")
+#print(int(newNumber)) <-- cannot covert FLOAT to INTGER.
+print(float(newNumber)) # can convert STRING to FLOAT
+print(str(newNumber)) # can convert FLOAT to STRING
+
 # str() will convert the data to a string if possible.
+myNumber = 5
+print(newNumber + newNumber) # Should print 10
+print(str(newNumber + newNumber)) # Should print 55
