@@ -28,3 +28,7 @@ for eachFruit in fruits:
     if eachFruit == "banana":
      break
     print(eachFruit)
+
+# for loops using range(). range(x) is EXCLUSIVE, it starts at 0 and ends at -1
+for i in range(10): # range is 0 - 9
+   print(i)
