@@ -1,7 +1,11 @@
 # Awarding Extra Lives, Kristin Taylor v0.0
 
 lives = 3
-score = 10001
+score = 10000
+name = "kristin"
+
+#print(f"Hello {name}!  You scored {score} points.\n")
+
 # Allows the user to input the score AS A INTEGER.
 
 # If lives is 10000 or less
@@ -13,9 +17,13 @@ score = 10001
 
 # Output the score amd number of lives to the screen.
 
-if score > 10000:
+if score <= 10000:
    print = ("Lose a life")
-if score <= 10001: 
+elif score < 10001: 
    print = ("Give 1 extra life")
-if score > 10000:
+   lives += 1
+elif score > 100000:
    print = ("Give 2 extra Lives")
+   lives += 2
+
+print(lives)

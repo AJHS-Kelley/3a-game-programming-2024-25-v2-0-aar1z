@@ -15,18 +15,18 @@ print(variableName)
 #print(myNumber + 5)
 
 # CORRECT -- Use a wrapper.
-myNumber = input("Please type an INTEGER number and press enter.\n")
+myNumber = int(input("Please type an INTEGER number and press enter.\n"))
 print(myNumber + 5)
 
 # Wrapper Functions
 # int() will convert the data to an integer if possible.
-newNumber = input("Please type a value and press enert.\n")
+newNumber = input("Please type a value and press enter.\n")
 print(int(newNumber)) # can convert SRING to INTGER.
 print(float(newNumber)) # can convert STRING to FLOAT.
 print(str(newNumber)) # can covert INTGER to STRING.
 
 # float() will convert the data to a float if possible.
-newNumber = input("Please type a value and press enert.\n")
+newNumber = input("Please type a value and press enter.\n")
 #print(int(newNumber)) <-- cannot covert FLOAT to INTGER.
 print(float(newNumber)) # can convert STRING to FLOAT
 print(str(newNumber)) # can convert FLOAT to STRING
