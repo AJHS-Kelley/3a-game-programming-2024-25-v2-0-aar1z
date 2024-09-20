@@ -4,13 +4,13 @@
 import random
 
 # DATA STRUCTURES -- PLAYER
-playerScore=0
-playerName="Test Player"
-playerChoice=None
+playerScore = 0
+playerName ="Test Player"
+playerChoice = None
 
 # DATA STRUCTURES -- CPU
-CPUscore=0
-CPUscore=None
+cpuScore = 0
+cpuChoice = None
 
 # PLAYER NAME INPUT
 playerName = input("Type your name and press enter.\n")
@@ -47,18 +47,63 @@ The CPU will also choose from Rock, Paper and Scissor at random.
 
 
 # MAIN GAME LOOP
-while playerScore < 5 and CPUscore < 5:
-    print(f"{playerName} you have {playerScore} points.\n The CPU has {CPUscore} points.\n")
+while playerScore < 5 and cpuScore < 5:
+    print(f"{playerName} you have {playerScore} points.\n The CPU has {cpuScore} points.\n")
     playerChoices = input("Please enter rock, paper, or scissors and press enter.\n").lower()
-    if playerChoices != "rock" or playerChoice != "paper" or playerChoice != "scissors":
+    if playerChoices != "rock" and playerChoice != "paper" and playerChoice != "scissors":
        playerChoices = input("Please enter rock, paper, or scissors and press enter.\n").lower() 
-       if playerChoices != "rock" or playerChoice != "paper" or playerChoice != "scissors":
+       if playerChoices != "rock" and playerChoice != "paper" and playerChoice != "scissors":
            print(" You are not following directions. Please try again.\n")
            exit()
        print(f"You have chosen {playerChoice}.\n")
     else:
         print(f"You have chosen {playerChoice}.\n")
+    
     #Let CPU slect choice at random
+    cpuChoice = random.randint(0,2) # randomly select 0, 1, 2.
+    if cpuChoice == 0:
+        cpuChoice = "rock"
+    elif cpuChoice == 1:
+        cpuChoice = "scissors"
+    elif cpuChoice == 2:
+        cpuChoice = "Paper"
+    else:
+        print("unable to detrimes AI choice. \n Please restart")
+        exit()
+    #print(f"AI Choice: {cpuChoice}")
     #compare player choice to CPU choice
+    if playerChoice == "rock" and cpuChoice == "paper":
+        print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+        print("The AI wins a point")
+        cpuScore += 1
+    # cpu wins
+    elif playerChoice == "rock" and cpuChoice == "scissors":
+         print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+         print("You win a point")
+    # player wins
+    elif playerChoice == "rock" and cpuChoice == "rock":
+         print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+         print("It's a draw")
+    # draw
+    if playerChoice == "paper" and cpuChoice == "scissors":
+       print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+       print("The AI wins a point")
+    # cpu wins
+    elif playerChoice == "paper" and cpuChoice == "rock":
+         print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+         ("You win a point")
+    # player wins
+    elif playerChoice == "paper" and cpuChoice == "paper":
+         print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+    # draw
+    if playerChoice == "scissors" and cpuChoice == "rock":
+       print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+    # cpu wins
+    elif playerChoice == "scissors" and cpuChoice == "paper":
+         print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+    # player wins
+    elif playerChoice == "scissors" and cpuChoice == "scissors":
+         print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+    
     #print the results to the screen
     #award point to the winner and output results
