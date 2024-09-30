@@ -12,9 +12,12 @@ numDraws = 0
 cpuScore = 0
 cpuChoice = None
 
-# MULTI-LINE STRINGS CAN BE USED AS COMMENT 
 # MAIN GAME LOOP
-while playerScore < 5 and cpuScore < 5:
+loopCount = 0
+loopsReq =int(input("How many loops do you want?\nEnter an integer, no commas, and press ENTER.\n"))
+#req is the universal abbreviation in computer programing for REQUEST rews = request
+rpsTimeStart = time.time() # returns the number of seconds since Jan. 01, 1970 @ 12:00AM
+while loopCount < loopsReq:
     
     #Let CPU slect choice at random
     cpuChoice = random.randint(0,2) # randomly select 0, 1, 2.
@@ -29,7 +32,7 @@ while playerScore < 5 and cpuScore < 5:
         exit()
     print(f"AI Choice: {cpuChoice}")
     #print(f"AI Choice: {cpuChoice}")
-    cpuChoice = random.randint(0,2) # randomly select 0, 1, 2.
+    playerChoice = random.randint(0,2) # randomly select 0, 1, 2.
     if playerChoice == 0:
         playerChoice = "rock"
     elif playerChoice == 1:
@@ -52,6 +55,7 @@ while playerScore < 5 and cpuScore < 5:
     elif playerChoice == "rock" and cpuChoice == "rock":
          print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
          print("It's a draw")
+         numDraws += 1
     # draw
     if playerChoice == "paper" and cpuChoice == "scissors":
        print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
@@ -77,15 +81,20 @@ while playerScore < 5 and cpuScore < 5:
     elif playerChoice == "scissors" and cpuChoice == "scissors":
          print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
         
-    
+    loopCount += 1
     #print the results to the screen
     #award point to the winner and output results
          
-print(f" Your final score: {playerScore} AI final score: {cpuScore}.\n")
+print(f" Your final score: {playerScore} AI final score: {cpuScore}.\nDraws: {numDraws}")
 if playerScore > cpuScore:
-    print(f"Congrats {playerName}, you win!")
+    print(f"Congrats , you win!")
 elif cpuScore > playerScore:
     print(f"Th AI wins")
 else:
     print("unable to determine a winner. \n please restart")
     exit()
+
+rpsTimeStop = time.time()
+rpsTime = rpsTimeStop - rpsTimeStart
+print(f"Number of loops: {loopCount}\n")
+print(f"Execution Time {rpsTime:.2F} seconds.\n") # :. 2F format to 
