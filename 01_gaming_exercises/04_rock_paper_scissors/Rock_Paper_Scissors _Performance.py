@@ -42,20 +42,8 @@ while loopCount < loopsReq:
     else:
         print("unable to detrimes AI choice. \n Please restart")
         exit()
-    if playerChoice == "rock" and cpuChoice == "rock":
-       print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
-       print("It's a draw")
-       numDraws += 1
-
-    elif playerChoice == "paper" and cpuChoice == "paper":
-        print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
-        numDraws += 1
-
-    elif playerChoice == "scissors" and cpuChoice == "scissors":
-         print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
-         numDraws += 1
     
-    elif playerChoice == "rock" and cpuChoice == "paper":
+    if playerChoice == "rock" and cpuChoice == "paper":
         print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
         print("The AI wins a point")
         cpuScore += 1
@@ -65,7 +53,11 @@ while loopCount < loopsReq:
          print("You win a point")
          playerScore += 1
     # player wins
-    
+         
+    elif playerChoice == "rock" and cpuChoice == "rock":
+       print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+       print("It's a draw")
+       numDraws += 1
     # draw
     elif playerChoice == "paper" and cpuChoice == "scissors":
        print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
@@ -77,7 +69,9 @@ while loopCount < loopsReq:
          ("You win a point")
          playerScore += 1
     # player wins
-    
+    elif playerChoice == "paper" and cpuChoice == "paper":
+        print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+        numDraws += 1
     # draw
     elif playerChoice == "scissors" and cpuChoice == "rock":
        print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
@@ -87,7 +81,9 @@ while loopCount < loopsReq:
          print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
          playerScore += 1
     # player wins
-    
+    elif playerChoice == "scissors" and cpuChoice == "scissors":
+         print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
+         numDraws += 1    
     loopCount += 1
     #print the results to the screen
     #award point to the winner and output results
