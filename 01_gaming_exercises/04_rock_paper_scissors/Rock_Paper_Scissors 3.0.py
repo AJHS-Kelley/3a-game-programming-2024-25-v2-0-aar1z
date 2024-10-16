@@ -13,7 +13,9 @@ cpuScore = 0
 cpuChoice = None
 
 # PLAYER NAME INPUT
-def playerName(): # Function signature -- name of
+def playerName()-> str: # Function signature -- name of
+    """Gets the name from the player and returns it."""
+    # The line above is a DOCSTRING, it gives a brief example of what the function does
     playerName = input("Type your name and press enter.\n")
     print(f"Hello {playerName}!\n")
     isCorrect = input("Is that correct? Type yes or no and press enter.\n").lower()
@@ -28,7 +30,8 @@ def playerName(): # Function signature -- name of
 playerName = playerName()
 
 #The RULES
-def rules():
+def rules()-> None:
+    """The function prints the rules for rock papaer, scissor"""
     print(f"""
     Welcome {playerName} to the Rock, Paper, Scissors Robot
     It's time to play Rock, Paper, Scissors!
@@ -45,7 +48,7 @@ def rules():
     # if YES, you must have areturn statement
     # if NO, a return statement isn't require
 
-def playerChoice():
+def playerChoice()-> str:
 # MAIN GAME LOOP
  while playerScore < 5 and cpuScore < 5:
     print(f"{playerName} you have {playerScore} points.\n The CPU has {cpuScore} points.\n")
@@ -60,7 +63,7 @@ def playerChoice():
         print(f"You have chosen {playerChoice}.")
     return playerChoice
  
- def cpuChoice():
+ def cpuChoice()-> str:
     cpuChoice = random.randint(0,2) # randomly select 0, 1, 2.
     if cpuChoice == 0:
         cpuChoice = "rock"
