@@ -29,7 +29,7 @@ def playerName()-> str: # Function signature -- name of
 # CALLING THE FUNCTION
 playerName = playerName()
 
-#The RULES
+#The RULES using MULTI-LINE STRING
 def rules()-> None:
     """The function prints the rules for rock papaer, scissor"""
     print(f"""
@@ -64,6 +64,7 @@ def playerChoice()-> str:
     return playerChoice
  
  def cpuChoice()-> str:
+    """Allows the CPU to choose rock paper, scissors"""
     cpuChoice = random.randint(0,2) # randomly select 0, 1, 2.
     if cpuChoice == 0:
         cpuChoice = "rock"
@@ -72,55 +73,70 @@ def playerChoice()-> str:
     elif cpuChoice == 2:
         cpuChoice = "paper"
     else:
-        print("unable to detrimes AI choice. \n Please restart")
+        print("unable to detrimes CPU choice. \n Please restart")
         exit()
     print(f"AI Choice: {cpuChoice}")
     return cpuChoice
     
-    #print(f"AI Choice: {cpuChoice}")
-    #compare player choice to CPU choice
+def pickWinner(playerChoice: str, cpuChoice: str) -> str:
+    """Determines the winner using player and CPU choices."""
     if playerChoice == "rock" and cpuChoice == "paper":
         print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
         print("The AI wins a point")
         cpuScore += 1
-    # cpu wins
+        return "CPU wins"
     elif playerChoice == "rock" and cpuChoice == "scissors":
          print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
          print("You win a point")
          playerScore += 1
-    # player wins
+         return "Player wins"
     elif playerChoice == "rock" and cpuChoice == "rock":
          print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
          print("It's a draw")
-    # draw
+         return "Draw"
     if playerChoice == "paper" and cpuChoice == "scissors":
        print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
        print("The AI wins a point")
        cpuScore += 1
-    # cpu wins
+       return "CPU wins"
     elif playerChoice == "paper" and cpuChoice == "rock":
          print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
          ("You win a point")
          playerScore += 1
-    # player wins
+         return "Player wins"
     elif playerChoice == "paper" and cpuChoice == "paper":
          print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
-    # draw
+         return "Draw"
     if playerChoice == "scissors" and cpuChoice == "rock":
        print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
        cpuScore += 1 
-    # cpu wins
+       return "CPU wins"
     elif playerChoice == "scissors" and cpuChoice == "paper":
          print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
          playerScore += 1
-    # player wins
+         return "Player wins"
     elif playerChoice == "scissors" and cpuChoice == "scissors":
          print(f" The AI chose {cpuChoice} and you chose {playerChoice}\n")
-        
-    
-    #print the results to the screen
-    #award point to the winner and output results
-         
+         print("It's a draw")
+         return "Draw"
+    else: 
+         print("Unable to determine a winner. Please restart.\n")
+         exit()
+
+def score(winner: str) -> int:
+    """This function uses the winner to update the score for CPU, Num. DRAWS, and player score."""
+    if winner == "Player Wins":
+       score = 1
+    elif winner == "CPU Wins":
+        score = 1
+    else: # This is a DRAW. 
+        score = 0
+    return score
+
+# MAIN GAME LOOP 
+while playerScore < 5 and cpuScore < 5: 
+    print(f"{playerName} you have {playerScore} points.\nThe CPU has {cpuScore} points.\n") 
+
 print(f" Your final score: {playerScore} AI final score: {cpuScore}.\n")
 if playerScore > cpuScore:
     print(f"Congrats {playerName}, you win!")
