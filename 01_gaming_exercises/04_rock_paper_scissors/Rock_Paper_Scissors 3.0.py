@@ -1,4 +1,4 @@
-# Rock paper scissors, Kristin Taylor v0.1
+# Rock paper scissors, Kristin Taylor v3.3
 
 # MODULE IMPORTS
 import random
@@ -49,7 +49,7 @@ def rules()-> None:
     # if NO, a return statement isn't require
 
 def playerChoice()-> str:
-# MAIN GAME LOOP
+ """Allows player to choose rock, paper, scissors"""
  while playerScore < 5 and cpuScore < 5:
     print(f"{playerName} you have {playerScore} points.\n The CPU has {cpuScore} points.\n")
     playerChoice = input("Please enter rock, paper, or scissors and press enter.\n").lower()
@@ -78,6 +78,7 @@ def playerChoice()-> str:
     print(f"AI Choice: {cpuChoice}")
     return cpuChoice
     
+# Remove the lines of code that add score to player, CPU or draw below.
 def pickWinner(playerChoice: str, cpuChoice: str) -> str:
     """Determines the winner using player and CPU choices."""
     if playerChoice == "rock" and cpuChoice == "paper":
@@ -133,15 +134,22 @@ def score(winner: str) -> int:
         score = 0
     return score
 
-# MAIN GAME LOOP 
-while playerScore < 5 and cpuScore < 5: 
-    print(f"{playerName} you have {playerScore} points.\nThe CPU has {cpuScore} points.\n") 
+def playGame(playerScore: int, cpuScore: int) -> None:
+    """This functio will use all other function to play rock, paper, scissor."""
+    while True:
+        cpuPick = cpuChoice()
+        playerPick = playerChoice()
+        roundWinner = pickWinner(playerPick, cpuPick)
+        if roundWinner == "Player win":
+            playerScore += score(roundWinner)
+        if roundWinner == "CPU win":
+            cpuScore += score(roundWinner)
 
-print(f" Your final score: {playerScore} AI final score: {cpuScore}.\n")
-if playerScore > cpuScore:
-    print(f"Congrats {playerName}, you win!")
-elif cpuScore > playerScore:
-    print(f"Th AI wins")
-else:
-    print("unable to determine a winner. \n please restart")
-    exit()
+        print(f"Player Score; {playerScore}\n")
+        print(f"CPU Score; {cpuScore}\n")
+
+        if matchWinner(playerScore, cpuScore) == True:
+           break
+
+playGame(playerScore, cpuScore)
+
