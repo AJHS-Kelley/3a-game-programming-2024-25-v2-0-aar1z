@@ -4,6 +4,7 @@
 import random
 import time
 playerChoice = None
+hasBlade = False
 
 def displayIntro():
 
@@ -18,15 +19,17 @@ if playerChoice == "1":
 elif playerChoice == "2":
     print("You chose the dangerous cave.")
 def chooseForest():
-    hasBlade = False
+    print('')
     
 
+
+    
+
+def chooseCave():
     print('you see two caves. In one cave, the dragon is friendly')
     print('and will share his treasure with you. The other dragon')
     print('is greedy and hungry, and will eat you on sight.')
     print()
-
-def chooseCave():
     cave = ''
     while cave != '1' and cave != '2':
         print('Which cave will you go into? (1 or 2)')
