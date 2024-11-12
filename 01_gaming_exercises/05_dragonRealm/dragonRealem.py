@@ -3,33 +3,19 @@
 
 import random
 import time
-playerChoice = None
-hasBlade = False
 
 def displayIntro():
 
-    print('You are in a land full of dangerous creatures.')
-    print('In front of you, you see two paths')
-    print('One leads to a dark and deep forest the other leads to a dangerous cave')
-    playerChoice = input("Enter your choice (1 or 2): ")
-
-if playerChoice == "1":
-    print("You chose the dark Forest.")
-
-elif playerChoice == "2":
-    print("You chose the dangerous cave.")
-def chooseForest():
-    print('')
-    
-
+    print('You are in a land full of dangerous creatures')
+    print('Your choices and luck will detrime if you can surive')
+    time.sleep(2)
+    print('In front of you there are two paths')
+    print('One leading to a dark and deep forest')
+    print('The other leading to two caves')
 
     
 
 def chooseCave():
-    print('you see two caves. In one cave, the dragon is friendly')
-    print('and will share his treasure with you. The other dragon')
-    print('is greedy and hungry, and will eat you on sight.')
-    print()
     cave = ''
     while cave != '1' and cave != '2':
         print('Which cave will you go into? (1 or 2)')
