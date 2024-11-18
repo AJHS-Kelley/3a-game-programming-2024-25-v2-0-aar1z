@@ -7,12 +7,12 @@ import datetime
 
 #SAVING DATA TO FILE
 # sTEPS 1 -- CREATE THE FILE NAME TO USE
-logFileName = "dragonRealmLog" + str(time.time()) +".txt"
+logFileName = "dragonRealmLog.txt"
 #logFileName = "dragonRealm.txt"
 # Example: dragonRealmLog11:33am.txt
 
 #step 2create the file
-saveData = open(logFileName, "x")
+saveData = open(logFileName, "a")
 #Files Modes
 # x creates files, if file exist, exit with error message
 # w creates files, if files exist, earase and overwrite 
@@ -38,8 +38,10 @@ def choosepath():
         print("You have chosen the dark forest")
     elif path == 2:
         print("You have chosen the two caves")
-        return path
+        
   
+def chooseForest():
+    pass
 
     
 def chooseCave():
@@ -72,10 +74,12 @@ playAgain = 'yes'
 
 while playAgain == 'yes' or playAgain == 'y':
     displayIntro()
-    caveNumber = chooseCave()
-    checkCave(caveNumber)
+    choosePath = chooseCave()
+    checkCave()
+    if choosePath == 1
     print('Do you want to play again? (yes or no)')
     playAgain = input()
 
 # Close the file
-saveData.close()
+saveData.write("END OF GAME LOG\n\n")
+saveData.save()
