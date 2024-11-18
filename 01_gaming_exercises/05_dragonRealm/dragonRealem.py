@@ -12,15 +12,26 @@ def displayIntro():
     print('In front of you there are two paths')
     print('One leading to a dark and deep forest')
     print('The other leading to two caves')
+   
+def choosepath():
+    path = ''
+    while path != '1' and path != '2':
+        print('Which path do you choose? (1 or 2)')
+        path = input()
+    if path == 1:
+        print("You have chosen the dark forest")
+    elif path == 2:
+        print("You have chosen the two caves")
+        return path
+  
 
     
-
 def chooseCave():
     cave = ''
     while cave != '1' and cave != '2':
         print('Which cave will you go into? (1 or 2)')
         cave = input()
-    return cave
+    
 
 def checkCave(chosenCave):
     print('You approach the cave...')
