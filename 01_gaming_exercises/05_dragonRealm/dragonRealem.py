@@ -1,5 +1,7 @@
 # Dragon Realm, <STUDENT_NAME>, v0.0
 # Based on https://inventwithpython.com/chapter6.html by Al Sweigart
+# You have basically done no work on this project Kristin.  
+# I am concerned you will not finish, and you have not asked for help at all. 
 
 import random
 import time
