@@ -26,15 +26,15 @@ numItem = 0
 hasStake = False
 
 while numItem < 1:
-    itemsChosen = input('Taking a weapon is highly recommend on these adventures. Do you want to take one? (Yes/no):').lower()
-    if itemsChosen == 'Yes':
+    itemsChosen = input("Taking a weapon is highly recommend on these adventures. Do you want to take one? (Yes/no):")
+    if itemsChosen == 'yes':
         hasStake = True
         numItem += 1
-    elif itemsChosen == 'No':
+    elif itemsChosen == 'no':
         hasStake = False
         numItem += 1
     else:
-        print('You have to pick')
+        print("You have to pick either Yes or No")
    
 
 def displayIntro():
@@ -46,15 +46,11 @@ def displayIntro():
     print('One leading to a dark and deep forest')
     print('The other leading to two caves')
    
-def choosepath():
+def choosePath():
     path = ''
     while path != '1' and path != '2':
-        print('Which path do you choose? (1 or 2)')
-        path = input()
-    if path == 1:
-        print("You have chosen the dark forest")
-    elif path == 2:
-        print("You have chosen the two caves")
+        path = input('Which path do you choose? (1 or 2)')
+    return
         
   
 def chooseForest(hasStake: bool) -> bool:
@@ -82,7 +78,7 @@ def chooseForest(hasStake: bool) -> bool:
 
 
     
-def chooseCave():
+def chooseCave(chooseCave):
     cave = ''
     while cave != '1' and cave != '2':
         print('Which cave will you go into? (1 or 2)')
@@ -112,9 +108,8 @@ playAgain = 'yes'
 
 while playAgain == 'yes' or playAgain == 'y':
     displayIntro()
-    choosePath = chooseCave()
-    checkCave()
-    if choosePath == '1':
+    chosenPath = choosePath()
+    if chosenPath == '1':
         chooseForest()
     else:
         chooseCave()
