@@ -22,15 +22,19 @@ saveData = open(logFileName, "a")
 
 saveData.write("GAME STARTED" + " " + str(datetime.datetime.now())+ "\n")
 
-itemsChosen = 0
+numItem = 0
 hasStake = False
 
-while itemsChosen < 1:
-    itemsChosen = input('Taking a weapon is highly recommend on these adventures. Do you want to take one yes or no ?')
-    if itemsChosen == 'yes':
+while numItem < 1:
+    itemsChosen = input('Taking a weapon is highly recommend on these adventures. Do you want to take one? (Yes/no):').lower()
+    if itemsChosen == 'Yes':
         hasStake = True
+        numItem += 1
     elif itemsChosen == 'No':
         hasStake = False
+        numItem += 1
+    else:
+        print('You have to pick')
    
 
 def displayIntro():
@@ -56,7 +60,7 @@ def choosepath():
 def chooseForest(hasStake: bool) -> bool:
     print('You walk into the dark forest')
     time.sleep(2)
-    print('The tall trees cover any chance of sunlight like shining through')
+    print('The tall trees cover any chance of sunlight shining through')
     time.sleep(2)
     print('You feel the tempertaure around you drop')
     time.sleep(2)
@@ -66,7 +70,7 @@ def chooseForest(hasStake: bool) -> bool:
     if hasStake == True:
         print('You quickly reacted to the pale creature')
         print('You charged the wooden stake toward the creature chest')
-        print('The creature scream in pains as it flys away')
+        print('The creature screams in pain as it flys away')
         print('You are alive')
     elif hasStake == False:
         print('The creature charges at you')
@@ -112,7 +116,6 @@ while playAgain == 'yes' or playAgain == 'y':
     checkCave()
     if choosePath == '1':
         chooseForest()
-        pass
     else:
         chooseCave()
     print('Do you want to play again? (yes or no)')
