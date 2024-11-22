@@ -22,6 +22,17 @@ saveData = open(logFileName, "a")
 
 saveData.write("GAME STARTED" + " " + str(datetime.datetime.now())+ "\n")
 
+itemsChosen = 0
+hasStake = False
+
+while itemsChosen < 1:
+    itemsChosen = input('Taking a weapon is highly recommend on these adventures. Do you want to take one yes or no ?')
+    if itemsChosen == 'yes':
+        hasStake = True
+    elif itemsChosen == 'No':
+        hasStake = False
+   
+
 def displayIntro():
 
     print('You are in a land full of dangerous creatures')
@@ -42,8 +53,29 @@ def choosepath():
         print("You have chosen the two caves")
         
   
-def chooseForest():
-    pass
+def chooseForest(hasStake: bool) -> bool:
+    print('You walk into the dark forest')
+    time.sleep(2)
+    print('The tall trees cover any chance of sunlight like shining through')
+    time.sleep(2)
+    print('You feel the tempertaure around you drop')
+    time.sleep(2)
+    print('You have the eerie feeling of being watched')
+    time.sleep(4)
+    print('Suddenly a pale creature with sharp teath charges at you')
+    if hasStake == True:
+        print('You quickly reacted to the pale creature')
+        print('You charged the wooden stake toward the creature chest')
+        print('The creature scream in pains as it flys away')
+        print('You are alive')
+    elif hasStake == False:
+        print('The creature charges at you')
+        print('You have nothing to defend yourself with')
+        print('You feel the creature bite into your neck and suck your blood')
+        print("You have died")
+    
+
+
 
     
 def chooseCave():
@@ -53,7 +85,7 @@ def chooseCave():
         cave = input()
     
 
-def checkCave(chosenCave):
+def checkCave(chooseCave):
     print('You approach the cave...')
     time.sleep(2)
     print('It is dark and spooky...')
@@ -64,7 +96,7 @@ def checkCave(chosenCave):
 
     friendlyCave = random.randint(1, 2)
 
-    if chosenCave == str(friendlyCave):
+    if chooseCave == str(friendlyCave):
         print('Gives you his treasure!')
 
     else:
@@ -78,7 +110,11 @@ while playAgain == 'yes' or playAgain == 'y':
     displayIntro()
     choosePath = chooseCave()
     checkCave()
-    if choosePath == 1
+    if choosePath == '1':
+        chooseForest()
+        pass
+    else:
+        chooseCave()
     print('Do you want to play again? (yes or no)')
     playAgain = input()
 
