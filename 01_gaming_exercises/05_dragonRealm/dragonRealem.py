@@ -50,7 +50,7 @@ def choosePath():
     path = ''
     while path != '1' and path != '2':
         path = input('Which path do you choose? (1 or 2)')
-    return
+    return # What are you returning here?  You need a variable, list, or expression to return a value. 
         
   
 def chooseForest(hasStake: bool) -> bool:
@@ -119,3 +119,5 @@ while playAgain == 'yes' or playAgain == 'y':
 # Close the file
 saveData.write("END OF GAME LOG\n\n")
 saveData.save()
+
+# Code crashes immediately after trying to choose a cave, no matter if I select 1 or 2. 
