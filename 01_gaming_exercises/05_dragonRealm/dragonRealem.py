@@ -50,43 +50,56 @@ def choosePath():
     path = ''
     while path != '1' and path != '2':
         path = input('Which path do you choose? (1 or 2)')
-    return
+    return path
         
   
 def chooseForest(hasStake: bool) -> bool:
     print('You walk into the dark forest')
     time.sleep(2)
-    print('The tall trees cover any chance of sunlight shining through')
+    print('The tall trees cover any chance of sunlight shining through\n')
     time.sleep(2)
-    print('You feel the tempertaure around you drop')
+    print('You feel the tempertaure around you drop\n')
     time.sleep(2)
-    print('You have the eerie feeling of being watched')
+    print('You have the eerie feeling of being watched\n')
     time.sleep(4)
-    print('Suddenly a pale creature with sharp teath charges at you')
-    if hasStake == True:
-        print('You quickly reacted to the pale creature')
-        print('You charged the wooden stake toward the creature chest')
-        print('The creature screams in pain as it flys away')
+    print('Suddenly a pale creature with sharp teath charges at you\n')
+    choice = input('Do you want to fight back? (yes or no)\n')
+    if choice == 'yes' and hasStake:
+        print('You quickly reacted to the pale creature\n')
+        print('You charged the wooden stake toward the creature chest\n')
+        print('The creature screams in pain as it flys away\n')
         print('You are alive')
-    elif hasStake == False:
-        print('The creature charges at you')
-        print('You have nothing to defend yourself with')
-        print('You feel the creature bite into your neck and suck your blood')
+    elif choice == 'yes' and not hasStake:
+        print('The creature charges at you\n')
+        time.sleep(2)
+        print('You have nothing to defend yourself with\n')
+        time.sleep(2)
+        print('You feel the creature bite into your neck and suck your blood\n')
+        time.sleep(2)
         print("You have died")
+    else:
+        print('The creature charges at you\n')
+        time.sleep(2)
+        print('You have nothing to defend yourself with\n')
+        time.sleep(2)
+        print('You feel the creature bite into your neck and suck your blood\n')
+        time.sleep(2)
+        print("You have died")
+
     
 
 
 
-    
-def chooseCave(chosenCave):
+def checkCave():
+#def chooseCave():
     cave = ''
     while cave != '1' and cave != '2':
         print('Which cave will you go into? (1 or 2)')
         cave = input()
-    return cave
+    #return cave
     
 
-def checkCave(chooseCave):
+#def checkCave(chooseCave):
     print('You approach the cave...')
     time.sleep(2)
     print('It is dark and spooky...')
@@ -97,7 +110,7 @@ def checkCave(chooseCave):
 
     friendlyCave = random.randint(1, 2)
 
-    if chooseCave == str(friendlyCave):
+    if friendlyCave == str(friendlyCave):
         print('Gives you his treasure!')
 
     else:
@@ -111,13 +124,14 @@ while playAgain == 'yes' or playAgain == 'y':
     displayIntro()
     chosenPath = choosePath()
     if chosenPath == '1':
-        chooseForest()
+        chooseForest(hasStake)
     else:
-        caveNumber = chooseCave()
-    checkCave(caveNumber)
+        checkCave()
     print('Do you want to play again? (yes or no)')
     playAgain = input()
 
 # Close the file
 saveData.write("END OF GAME LOG\n\n")
 saveData.save()
+
+# Code crashes immediately after trying to choose a cave, no matter if I select 1 or 2. 
