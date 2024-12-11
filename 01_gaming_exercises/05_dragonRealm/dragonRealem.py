@@ -26,7 +26,7 @@ numItem = 0
 hasStake = False
 
 while numItem < 1:
-    itemsChosen = input("Taking a weapon is highly recommend on these adventures. Do you want to take one? (Yes/no):")
+    itemsChosen = input("Taking a weapon is highly recommend on these adventures. Do you want to take one? (Yes/no):").lower()
     if itemsChosen == 'yes':
         hasStake = True
         numItem += 1
@@ -78,11 +78,12 @@ def chooseForest(hasStake: bool) -> bool:
 
 
     
-def chooseCave(chooseCave):
+def chooseCave(chosenCave):
     cave = ''
     while cave != '1' and cave != '2':
         print('Which cave will you go into? (1 or 2)')
         cave = input()
+    return cave
     
 
 def checkCave(chooseCave):
@@ -112,7 +113,8 @@ while playAgain == 'yes' or playAgain == 'y':
     if chosenPath == '1':
         chooseForest()
     else:
-        chooseCave()
+        caveNumber = chooseCave()
+    checkCave(caveNumber)
     print('Do you want to play again? (yes or no)')
     playAgain = input()
 
