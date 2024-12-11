@@ -71,19 +71,13 @@ def chooseForest(hasStake: bool) -> bool:
         print('You are alive')
     elif choice == 'yes' and not hasStake:
         print('The creature charges at you\n')
-        time.sleep(2)
         print('You have nothing to defend yourself with\n')
-        time.sleep(2)
         print('You feel the creature bite into your neck and suck your blood\n')
-        time.sleep(2)
         print("You have died")
     else:
         print('The creature charges at you\n')
-        time.sleep(2)
         print('You have nothing to defend yourself with\n')
-        time.sleep(2)
         print('You feel the creature bite into your neck and suck your blood\n')
-        time.sleep(2)
         print("You have died")
 
     
@@ -91,15 +85,14 @@ def chooseForest(hasStake: bool) -> bool:
 
 
 def checkCave():
-#def chooseCave():
     cave = ''
     while cave != '1' and cave != '2':
         print('Which cave will you go into? (1 or 2)')
         cave = input()
-    #return cave
+
     
 
-#def checkCave(chooseCave):
+
     print('You approach the cave...')
     time.sleep(2)
     print('It is dark and spooky...')
